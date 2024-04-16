@@ -1,0 +1,40 @@
+url: {{baseUrl}}/getAllEstablishmentSearch?name=Bellezza Beauty Lounge
+
+[
+    {
+        "establishmentId": 4,
+        "establishmentName": "Bellezza Beauty Lounge",
+        "establishmentLocation": "25.761681,-80.191788",
+        "images": [],
+        "serviceTags": null,
+        "averageRating": 3.1,
+        "ratingCount": 191,
+        "services": [
+            {
+                "id": 4,
+                "name": "Manicure",
+                "salePrice": 25,
+                "availability": [
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"10.00 a.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"11.00 a.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"2.00 p.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"3.00 p.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"4.00 p.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"5.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"10.00 a.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"11.00 a.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"2.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"3.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"4.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"5.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"10.00 a.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"11.00 a.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"2.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"3.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"4.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"5.00 p.m\"]}"
+                ]
+            }
+        ]
+    }
+]
