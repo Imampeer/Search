@@ -1,0 +1,76 @@
+url: {{baseUrl}}/getAllEstablishmentSearch?serviceName=Hair Services
+
+[
+    {
+        "establishmentId": 1,
+        "establishmentName": "Glamour Beauty Salon",
+        "establishmentLocation": "34.052235,-118.243683",
+        "images": [],
+        "serviceTags": null,
+        "averageRating": 3.7,
+        "ratingCount": 369,
+        "services": [
+            {
+                "id": 1,
+                "name": "Hair Services",
+                "salePrice": null,
+                "availability": [
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"10.00 a.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"11.00 a.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"2.00 p.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"3.00 p.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"4.00 p.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"5.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"10.00 a.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"11.00 a.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"2.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"3.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"4.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"5.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"10.00 a.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"11.00 a.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"2.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"3.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"4.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"5.00 p.m\"]}"
+                ]
+            }
+        ]
+    },
+    {
+        "establishmentId": 19,
+        "establishmentName": "Kennan Skin Spa",
+        "establishmentLocation": "34.052235,-118.243683",
+        "images": [],
+        "serviceTags": null,
+        "averageRating": 3.1,
+        "ratingCount": 119,
+        "services": [
+            {
+                "id": 19,
+                "name": "Hair Services",
+                "salePrice": null,
+                "availability": [
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"10.00 a.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"11.00 a.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"2.00 p.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"3.00 p.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"4.00 p.m\"]}",
+                    "{\"date\": \"2024-04-03\",\"timeSlots\": [\"5.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"10.00 a.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"11.00 a.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"2.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"3.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"4.00 p.m\"]}",
+                    "{\"date\": \"2024-04-04\",\"timeSlots\": [\"5.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"10.00 a.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"11.00 a.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"2.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"3.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"4.00 p.m\"]}",
+                    "{\"date\": \"2024-04-05\",\"timeSlots\": [\"5.00 p.m\"]}"
+                ]
+            }
+        ]
+    }
+]
