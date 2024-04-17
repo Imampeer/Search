@@ -1,0 +1,169 @@
+package com.ti.lav.lavender.db.dao;
+
+import com.ti.lav.lavender.model.EstImagesDTO;
+import com.ti.lav.lavender.model.EstServicesDTO;
+import com.ti.lav.lavender.model.EstablishmentSearchDTO;
+import jakarta.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.math.BigDecimal;
+import java.util.*;
+
+import static java.util.Arrays.*;
+
+@Repository
+public class EstablishmentSearchDAO {
+    @Autowired
+    private EntityManager entityManager;
+
+    public List<EstablishmentSearchDTO> searchEstablishmentByName(String name) {
+        String query = "SELECT E.ID, E.EST_NAME, E.EST_GEO_LOCATION, " +
+                "GROUP_CONCAT(I.IMAGE_DATA), S.ID as serviceId, S.ES_NAME as serviceName, S.ES_SALE_PRICE as startingPrice " +
+                " FROM establishments E " +
+                "LEFT JOIN est_images I ON E.ID = I.ID " +
+                "LEFT JOIN est_services S ON E.ID = S.ID " +
+                "WHERE E.EST_NAME LIKE :name " +  // Filtering by establishment name
+                "GROUP BY E.ID";
+
+        return executeQuery(query, name);
+    }
+
+    public List<EstablishmentSearchDTO> searchEstablishmentByService(String serviceName) {
+        String query = "SELECT E.ID, E.EST_NAME, E.EST_GEO_LOCATION, " +
+                "GROUP_CONCAT(I.IMAGE_DATA), S.ID as serviceId, S.ES_NAME as serviceName, S.ES_SALE_PRICE as startingPrice " +
+                " FROM establishments E " +
+                "LEFT JOIN est_images I ON E.ID = I.ID " +
+                "LEFT JOIN est_services S ON E.ID = S.ID " +
+                "WHERE S.ES_NAME LIKE :serviceName " +  // Filtering by service name
+                "GROUP BY E.ID";
+
+        return executeQuery(query, serviceName);
+    }
+
+    public List<EstablishmentSearchDTO> searchEstablishmentByLocation(String location) {
+        String query = "SELECT E.ID, E.EST_NAME, E.EST_GEO_LOCATION, " +
+                "GROUP_CONCAT(I.IMAGE_DATA), S.ID as serviceId, S.ES_NAME as serviceName, S.ES_SALE_PRICE as startingPrice " +
+                " FROM establishments E " +
+                "LEFT JOIN est_images I ON E.ID = I.ID " +
+                "LEFT JOIN est_services S ON E.ID = S.ID " +
+                "WHERE E.EST_GEO_LOCATION LIKE :location " +  // Filtering by location
+                "GROUP BY E.ID";
+
+        return executeQuery(query, location);
+    }
+
+    public List<EstablishmentSearchDTO> getAllEstablishments() {
+        String query = "SELECT E.ID, E.EST_NAME, E.EST_GEO_LOCATION, " +
+                "GROUP_CONCAT(I.IMAGE_DATA), S.ID as serviceId, S.ES_NAME as serviceName, S.ES_SALE_PRICE as startingPrice " +
+                " FROM establishments E " +
+                "LEFT JOIN est_images I ON E.ID = I.ID " +
+                "LEFT JOIN est_services S ON E.ID = S.ID " +
+                "GROUP BY E.ID";
+
+        return executeQuery(query, null);
+    }
+
+
+    private List<EstablishmentSearchDTO> executeQuery(String query, String parameter) {
+        String parameterName = ""; // Initialize parameter name
+        if (parameter != null) {
+            if (query.contains(":name")) {
+                parameterName = "name";
+            } else if (query.contains(":serviceName")) {
+                parameterName = "serviceName";
+            } else if (query.contains(":location")) {
+                parameterName = "location";
+            }
+        }
+
+        List<Object[]> resultList = entityManager.createNativeQuery(query)
+                .setParameter(parameterName, parameter != null ? "%" + parameter + "%" : "")
+                .getResultList();
+
+        return transformResultToDTO(resultList);
+    }
+
+
+    private List<EstablishmentSearchDTO> transformResultToDTO(List<Object[]> resultList) {
+        List<EstablishmentSearchDTO> establishmentSearchDTOList = new ArrayList<>();
+
+        for (Object[] row : resultList) {
+            EstablishmentSearchDTO establishmentSearchDTO = new EstablishmentSearchDTO();
+            establishmentSearchDTO.setEstablishmentId(((Number) row[0]).longValue());
+            establishmentSearchDTO.setEstablishmentName((String) row[1]);
+            establishmentSearchDTO.setEstablishmentLocation((String) row[2]);
+
+            // Mapping image data (assuming it's a comma-separated string)
+            String imageDataString = (String) row[3];
+            List<EstImagesDTO> estImagesDTOList = new ArrayList<>();
+            if (imageDataString != null) {
+                List<String> imageDataList = Arrays.asList(imageDataString.split(","));
+                for (String imageData : imageDataList) {
+                    EstImagesDTO estImagesDTO = new EstImagesDTO();
+                    estImagesDTO.setImageData(imageData);
+                    estImagesDTOList.add(estImagesDTO);
+                }
+            }
+            establishmentSearchDTO.setImages(estImagesDTOList);
+
+            // Mapping service data
+            EstServicesDTO serviceDTO = new EstServicesDTO();
+            serviceDTO.setId(((Number) row[4]).longValue());
+            serviceDTO.setName((String) row[5]);
+            serviceDTO.setSalePrice((BigDecimal) row[6]);
+
+            // Create a new object with only id, name, and salePrice
+            EstServicesDTO simplifiedServiceDTO = new EstServicesDTO();
+            simplifiedServiceDTO.setId(serviceDTO.getId());
+            simplifiedServiceDTO.setName(serviceDTO.getName());
+            simplifiedServiceDTO.setSalePrice(serviceDTO.getSalePrice());
+
+            // Adding dummy availability data
+            simplifiedServiceDTO.setAvailability(generateDummyAvailability());
+
+            establishmentSearchDTO.setServices(Collections.singletonList(simplifiedServiceDTO));
+
+            // Adding dummy averageRating and ratingCount
+            establishmentSearchDTO.setAverageRating(generateRandomAverageRating());
+            establishmentSearchDTO.setRatingCount(generateRandomRatingCount());
+
+            establishmentSearchDTOList.add(establishmentSearchDTO);
+        }
+
+        return establishmentSearchDTOList;
+    }
+
+
+    private List<String> generateDummyAvailability() {
+        // Dummy availability data for testing
+        List<String> timeSlots = Arrays.asList("10.00 a.m", "11.00 a.m", "2.00 p.m", "3.00 p.m", "4.00 p.m", "5.00 p.m");
+        List<String> dates = Arrays.asList("2024-04-03", "2024-04-04", "2024-04-05");
+
+        List<String> availability = new ArrayList<>();
+        for (String date : dates) {
+            for (String timeSlot : timeSlots) {
+                availability.add("{\"date\": \"" + date + "\",\"timeSlots\": [\"" + timeSlot + "\"]}");
+            }
+        }
+
+        return availability;
+    }
+
+    private BigDecimal generateRandomAverageRating() {
+        // Generate random average rating between 3.0 and 5.0
+        double minRating = 3.0;
+        double maxRating = 5.0;
+        double randomRating = minRating + new Random().nextDouble() * (maxRating - minRating);
+        return BigDecimal.valueOf(randomRating).setScale(1, BigDecimal.ROUND_HALF_UP);
+    }
+
+    private int generateRandomRatingCount() {
+        // Generate random rating count between 10 and 500
+        int minCount = 10;
+        int maxCount = 500;
+        return new Random().nextInt(maxCount - minCount + 1) + minCount;
+    }
+
+
+}
