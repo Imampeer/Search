@@ -1,0 +1,192 @@
+url: http://localhost:9090/saveEst // saving availability in data base
+//Body
+{
+    "createdBy": 9229,
+    "createdDate": "2024-03-21T19:07:38.000+00:00",
+    "lastModifiedBy": 75454,
+    "lastModifiedDate": "2024-03-21T19:07:38.000+00:00",
+    "name": "Hair Services",
+    "about": "We specialize in hair styling, makeup, and nail art.",
+    "addressLine1": "laalu Main Street",
+    "addressLine2": "35A45",
+    "area": "Dharwi Road",
+    "state": "Laknow",
+    "country": "India",
+    "pincode": "51534",
+    "geoLocation": "34.052235,-118.243683",
+    "services": [
+        {
+            "createdBy": 9999,
+            "createdDate": "2024-03-21T19:07:38.000+00:00",
+            "lastModifiedBy": 963,
+            "lastModifiedDate": "2024-03-21T19:07:38.000+00:00",
+            "name": "Hair Services",
+            "categoryType": "Level II",
+            "parentId": 9,
+            "salePrice": 32.0,
+             "availability": [
+                 {
+                    "id":1,
+                "createdBy": 666,
+                "createdDate": "2024-04-18T08:49:30.499Z",
+                "lastModifiedBy": 888,
+                "lastModifiedDate": "2024-04-18T08:49:30.499Z",
+                "date": "18-04-2024",
+                "timeSlots": [
+                        "10.00 am","11.00 am"
+                     ]
+                 }
+             ],
+        
+            "maxPrice": 45.0,
+            "discountPrice": 3.0,
+            "discountPercentage": 3.0,
+            "duration": 55
+
+        }
+    ],
+    "employees": [
+        {
+            "createdBy": 99,
+            "createdDate": "2024-03-21T19:07:38.000+00:00",
+            "lastModifiedBy": 51,
+            "lastModifiedDate": "2024-03-21T19:07:38.000+00:00",
+            "employeeTitle": "Hair specilist",
+            "employeeImage": "bjbsdjkbjbdjkbb.gpg"
+        }
+    ],
+    "images": [
+        {
+            "createdBy": 962,
+            "createdDate": "2024-03-21T19:07:38.000+00:00",
+            "lastModifiedBy": 15,
+            "lastModifiedDate": "2024-03-21T19:07:38.000+00:00",
+            "imageCategory": "Manicure",
+            "imageData": "46646scs445sc"
+        }
+    ],
+    "openingHours": [
+    {
+      
+      "createdBy": 454,
+      "createdDate": "2024-03-22T05:49:19.875Z",
+      "lastModifiedBy": 45,
+      "lastModifiedDate": "2024-03-22T05:49:19.875Z",
+      "dayofweekisopen": "Monday-Sunday",
+      "starthour": "10:00",
+      "endhour": "22:00"
+    }
+  ],
+  "serviceAddOnnMap": [
+    {
+      
+      "createdBy": 22,
+      "createdDate": "2024-03-22T05:49:19.875Z",
+      "lastModifiedBy": 23,
+      "lastModifiedDate": "2024-03-22T05:49:19.875Z",
+      "mapId": 22
+    }
+  ]
+}
+
+
+
+
+
+Responce
+{
+    "id": 27,
+    "createdBy": 9229,
+    "createdDate": "2024-03-21T19:07:38.000+00:00",
+    "lastModifiedBy": 75454,
+    "lastModifiedDate": "2024-03-21T19:07:38.000+00:00",
+    "name": "Hair Services",
+    "about": "We specialize in hair styling, makeup, and nail art.",
+    "addressLine1": "laalu Main Street",
+    "addressLine2": "35A45",
+    "area": "Dharwi Road",
+    "state": "Laknow",
+    "country": "India",
+    "pincode": "51534",
+    "geoLocation": "34.052235,-118.243683",
+    "services": [
+        {
+            "id": 0,
+            "createdBy": 9999,
+            "createdDate": "2024-03-21T19:07:38.000+00:00",
+            "lastModifiedBy": 963,
+            "lastModifiedDate": "2024-03-21T19:07:38.000+00:00",
+            "estId": 27,
+            "name": "Hair Services",
+            "categoryType": "Level II",
+            "parentId": 9,
+            "salePrice": 32.0,
+            "maxPrice": 45.0,
+            "discountPrice": 3.0,
+            "discountPercentage": 3.0,
+            "duration": 55,
+            "availability": [
+                {
+                    "id": 1,
+                    "createdBy": 666,
+                    "createdDate": "2024-04-18T08:49:30.499+00:00",
+                    "lastModifiedBy": 888,
+                    "lastModifiedDate": "2024-04-18T08:49:30.499+00:00",
+                    "date": "18-04-2024",
+                    "timeSlots": [
+                        "10.00 am",
+                        "11.00 am"
+                    ],
+                    "estServiceID": 0
+                }
+            ]
+        }
+    ],
+    "employees": [
+        {
+            "id": 0,
+            "createdBy": 99,
+            "createdDate": "2024-03-21T19:07:38.000+00:00",
+            "lastModifiedBy": 51,
+            "lastModifiedDate": "2024-03-21T19:07:38.000+00:00",
+            "employeeId": 27,
+            "employeeTitle": "Hair specilist",
+            "employeeImage": "bjbsdjkbjbdjkbb.gpg"
+        }
+    ],
+    "images": [
+        {
+            "id": 0,
+            "createdBy": 962,
+            "createdDate": "2024-03-21T19:07:38.000+00:00",
+            "lastModifiedBy": 15,
+            "lastModifiedDate": "2024-03-21T19:07:38.000+00:00",
+            "imageId": 27,
+            "imageCategory": "Manicure",
+            "imageData": "46646scs445sc"
+        }
+    ],
+    "openingHours": [
+        {
+            "id": 0,
+            "createdBy": 454,
+            "createdDate": "2024-03-22T05:49:19.875+00:00",
+            "lastModifiedBy": 45,
+            "lastModifiedDate": "2024-03-22T05:49:19.875+00:00",
+            "estId": 27,
+            "dayofweekisopen": "Monday-Sunday",
+            "starthour": "10:00",
+            "endhour": "22:00"
+        }
+    ],
+    "serviceAddOnnMap": [
+        {
+            "id": 0,
+            "createdBy": 22,
+            "createdDate": "2024-03-22T05:49:19.875+00:00",
+            "lastModifiedBy": 23,
+            "lastModifiedDate": "2024-03-22T05:49:19.875+00:00",
+            "mapId": 27
+        }
+    ]
+}
